@@ -22,6 +22,14 @@ app.post("/todos", async (req, res) => {
   }
 });
 // Get all todos
+app.get("/todos", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM todo");
+    res.json(allTodos.rows);
+  } catch (err) {
+    soncoel.log(err.message);
+  }
+});
 // Get a todo
 // Update a todo
 // Delete a todo
