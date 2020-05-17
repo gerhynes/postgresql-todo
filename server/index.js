@@ -7,7 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // req.body
 
+// =================
 // Routes
+// =================
+
 // Create a todo
 app.post("/todos", async (req, res) => {
   try {
@@ -21,6 +24,7 @@ app.post("/todos", async (req, res) => {
     consoe.error(err.message);
   }
 });
+
 // Get all todos
 app.get("/todos", async (req, res) => {
   try {
@@ -30,6 +34,7 @@ app.get("/todos", async (req, res) => {
     console.error(err.message);
   }
 });
+
 // Get a todo
 app.get("/todos/:id", async (req, res) => {
   try {
@@ -42,6 +47,7 @@ app.get("/todos/:id", async (req, res) => {
     console.error(err.message);
   }
 });
+
 // Update a todo
 app.put("/todos/:id", async (req, res) => {
   try {
@@ -56,8 +62,21 @@ app.put("/todos/:id", async (req, res) => {
     console.error(err);
   }
 });
-// Delete a todo
 
+// Delete a todo
+app.delete("/todos/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [
+      id,
+    ]);
+    res.json("Todo was deleted");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+// Run server
 app.listen(5000, () => {
   console.log("Server has started on port 5000");
 });
