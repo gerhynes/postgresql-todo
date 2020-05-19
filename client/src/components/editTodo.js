@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const EditTodo = ({ todo }) => {
+const EditTodo = ({ todo, getTodos }) => {
   const [description, setDescription] = useState(todo.description);
 
   const updateDescription = async (e) => {
@@ -15,7 +15,9 @@ const EditTodo = ({ todo }) => {
           body: JSON.stringify(body),
         }
       );
-      window.location = "/";
+
+      // Render new list of todos
+      getTodos();
     } catch (err) {
       console.error(err.message);
     }

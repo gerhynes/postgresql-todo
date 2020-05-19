@@ -1,25 +1,14 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import EditTodo from "./editTodo";
 
-const TodosList = () => {
-  const [todos, setTodos] = useState([]);
-
+const TodosList = ({ todos, getTodos, setTodos }) => {
   const deleteTodo = async (id) => {
     try {
-      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+      const deletedTodo = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "DELETE",
       });
+      // Render only remaining todos
       setTodos(todos.filter((todo) => todo.todo_id !== id));
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  const getTodos = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/todos");
-      const jsonData = await response.json();
-      setTodos(jsonData);
     } catch (err) {
       console.error(err.message);
     }
@@ -27,7 +16,7 @@ const TodosList = () => {
 
   useEffect(() => {
     getTodos();
-  }, []);
+  }, [getTodos]);
 
   return (
     <Fragment>
@@ -44,7 +33,7 @@ const TodosList = () => {
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
               <td>
-                <EditTodo todo={todo} />
+                <EditTodo todo={todo} todos={todos} getTodos={getTodos} />
               </td>
               <td>
                 <button
