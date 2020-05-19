@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import EditTodo from "./editTodo";
 
-const ListTodos = () => {
+const TodosList = () => {
   const [todos, setTodos] = useState([]);
 
   const deleteTodo = async (id) => {
@@ -62,4 +62,4 @@ const ListTodos = () => {
   );
 };
 
-export default ListTodos;
+export default TodosList;

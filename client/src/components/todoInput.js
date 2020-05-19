@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const InputTodo = () => {
+const TodoInput = () => {
   const [description, setDescription] = useState("");
 
   const handleSubmit = async (e) => {
@@ -34,4 +34,4 @@ const InputTodo = () => {
   );
 };
 
-export default InputTodo;
+export default TodoInput;

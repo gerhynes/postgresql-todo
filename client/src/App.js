@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
-import InputTodo from "./components/inputTodo";
-import ListTodos from "./components/listTodos";
+import TodoInput from "./components/todoInput";
+import TodosList from "./components/todosList";
 import "./App.css";
 
 function App() {
   return (
     <Fragment>
       <div className="container">
-        <InputTodo />
-        <ListTodos />
+        <TodoInput />
+        <TodosList />
       </div>
     </Fragment>
   );
