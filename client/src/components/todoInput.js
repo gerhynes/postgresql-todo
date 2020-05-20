@@ -30,18 +30,18 @@ const TodoInput = ({ getTodos }) => {
   return (
     <Fragment>
       <h1 className="text-center my-5">Save Your Todos With PostgreSQL</h1>
-      <form className="form-group" onSubmit={handleSubmit} autoComplete="off">
+      <form className="" onSubmit={handleSubmit} autoComplete="off">
         <label className="mx-2" htmlFor="todoInput">
           Add a Todo
         </label>
         <input
-          className="form-control mb-2"
+          className="mb-2"
           type="text"
           value={description}
           id="todoInput"
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button className="btn btn-success mx-2">Add</button>
+        <button className="mx-2">Add</button>
       </form>
     </Fragment>
   );

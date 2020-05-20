@@ -20,7 +20,7 @@ const TodosList = ({ todos, getTodos, setTodos }) => {
 
   return (
     <Fragment>
-      <table className="table mt-5 text-center">
+      <table className="mt-5 text-center">
         <thead>
           <tr>
             <th>Description</th>
@@ -36,10 +36,7 @@ const TodosList = ({ todos, getTodos, setTodos }) => {
                 <EditTodo todo={todo} todos={todos} getTodos={getTodos} />
               </td>
               <td>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => deleteTodo(todo.todo_id)}
-                >
+                <button className="" onClick={() => deleteTodo(todo.todo_id)}>
                   Delete
                 </button>
               </td>

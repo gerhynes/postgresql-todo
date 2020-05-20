@@ -27,7 +27,7 @@ const EditTodo = ({ todo, getTodos }) => {
     <Fragment>
       <button
         type="button"
-        className="btn btn-warning"
+        className=""
         data-toggle="modal"
         data-target={`#id${todo.todo_id}`}
       >
@@ -35,17 +35,17 @@ const EditTodo = ({ todo, getTodos }) => {
       </button>
 
       <div
-        className="modal"
+        className=""
         id={`id${todo.todo_id}`}
         onClick={() => setDescription(todo.description)}
       >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h4 className="modal-title">Edit Todo</h4>
+        <div className="">
+          <div className="">
+            <div className="">
+              <h4 className="">Edit Todo</h4>
               <button
                 type="button"
-                className="close"
+                className=""
                 data-dismiss="modal"
                 onClick={() => setDescription(todo.description)}
               >
@@ -53,19 +53,19 @@ const EditTodo = ({ todo, getTodos }) => {
               </button>
             </div>
 
-            <div className="modal-body">
+            <div className="">
               <input
                 type="text"
-                className="form-control"
+                className=""
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
 
-            <div className="modal-footer">
+            <div className="">
               <button
                 type="button"
-                className="btn btn-success"
+                className=""
                 data-dismiss="modal"
                 onClick={(e) => updateDescription(e)}
               >
