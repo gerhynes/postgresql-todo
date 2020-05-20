@@ -20,7 +20,7 @@ const TodosList = ({ todos, getTodos, setTodos }) => {
 
   return (
     <Fragment>
-      <table className="mt-5 text-center">
+      <table className="table-auto mt-5 text-center">
         <thead>
           <tr>
             <th>Description</th>

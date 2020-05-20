@@ -35,7 +35,7 @@ const EditTodo = ({ todo, getTodos }) => {
       </button>
 
       <div
-        className=""
+        className="modal hidden"
         id={`id${todo.todo_id}`}
         onClick={() => setDescription(todo.description)}
       >
