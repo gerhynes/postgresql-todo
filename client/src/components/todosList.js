@@ -16,7 +16,7 @@ const TodosList = ({ todos, getTodos, setTodos }) => {
 
   useEffect(() => {
     getTodos();
-  }, [getTodos]);
+  }, []);
 
   return (
     <Fragment>
