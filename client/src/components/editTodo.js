@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 
 const EditTodo = ({ todo, getTodos }) => {
   const [description, setDescription] = useState(todo.description);
+  const [showModal, setShowModal] = useState(false);
 
   const updateDescription = async (e) => {
     e.preventDefault();
@@ -27,54 +28,54 @@ const EditTodo = ({ todo, getTodos }) => {
     <Fragment>
       <button
         type="button"
-        className="flex-shrink-0 bg-orange-500 hover:bg-orange-700 border-orange-500 hover:border-orange-700 text-sm font-semibold border-4 py-1 px-2 rounded"
-        data-toggle="modal"
-        data-target={`#id${todo.todo_id}`}
+        className="flex-shrink-0 bg-orange-500 hover:bg-orange-700 border-orange-500 hover:border-orange-700 text-sm font-semibold border-4 py-1 px-4 rounded"
+        onClick={() => setShowModal(true)}
       >
         Edit
       </button>
 
-      <div
-        className="modal hidden"
-        id={`id${todo.todo_id}`}
-        onClick={() => setDescription(todo.description)}
-      >
-        <div className="">
-          <div className="">
-            <div className="">
-              <h4 className="">Edit Todo</h4>
-              <button
-                type="button"
-                className=""
-                data-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
-              >
-                &times;
-              </button>
-            </div>
+      {showModal ? (
+        <>
+          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
+                  <h3 className="text-lg font-semibold">Edit Todo</h3>
+                  <button
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setShowModal(false)}
+                  >
+                    <span className="bg-transparent text-black opacity-5  text-2xl block outline-none focus:outline-none">
+                      &times;
+                    </span>
+                  </button>
+                </div>
+                <div className="flex items-center border-b border-b-2 border-green-500 py-2 my-2 mx-2">
+                  <input
+                    type="text"
+                    className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-4 leading-tight focus:outline-none"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
 
-            <div className="">
-              <input
-                type="text"
-                className=""
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
-
-            <div className="">
-              <button
-                type="button"
-                className=""
-                data-dismiss="modal"
-                onClick={(e) => updateDescription(e)}
-              >
-                Save
-              </button>
+                  <button
+                    type="button"
+                    className="flex-shrink-0 bg-green-500 hover:bg-green-700 border-green-500 hover:border-green-700 text-sm font-semibold border-4 text-white py-1 px-2 rounded"
+                    data-dismiss="modal"
+                    onClick={(e) => {
+                      updateDescription(e);
+                      setShowModal(false);
+                    }}
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
     </Fragment>
   );
 };
