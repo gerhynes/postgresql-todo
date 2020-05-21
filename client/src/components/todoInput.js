@@ -34,7 +34,7 @@ const TodoInput = ({ getTodos }) => {
       </h1>
 
       <form
-        className="w-full max-w-md mx-auto mb-5"
+        className="w-full max-w-md mx-auto mb-10"
         onSubmit={handleSubmit}
         autoComplete="off"
       >
@@ -47,7 +47,7 @@ const TodoInput = ({ getTodos }) => {
             placeholder="New todo..."
             onChange={(e) => setDescription(e.target.value)}
           />
-          <button className="flex-shrink-0 bg-green-500 hover:bg-green-700 border-green-500 hover:border-green-700 text-sm border-4 text-white py-1 px-2 rounded">
+          <button className="flex-shrink-0 bg-green-500 hover:bg-green-700 border-green-500 hover:border-green-700 text-sm font-semibold border-4 text-white py-1 px-2 rounded">
             Add
           </button>
         </div>

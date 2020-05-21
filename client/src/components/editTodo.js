@@ -27,7 +27,7 @@ const EditTodo = ({ todo, getTodos }) => {
     <Fragment>
       <button
         type="button"
-        className=""
+        className="flex-shrink-0 bg-orange-500 hover:bg-orange-700 border-orange-500 hover:border-orange-700 text-sm font-semibold border-4 py-1 px-2 rounded"
         data-toggle="modal"
         data-target={`#id${todo.todo_id}`}
       >

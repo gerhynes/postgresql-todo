@@ -18,7 +18,7 @@ function App() {
 
   return (
     <Fragment>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <TodoInput getTodos={getTodos} />
         <TodosList todos={todos} getTodos={getTodos} setTodos={setTodos} />
       </div>
