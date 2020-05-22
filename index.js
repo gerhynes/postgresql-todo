@@ -82,6 +82,11 @@ app.delete("/todos/:id", async (req, res) => {
   }
 });
 
+// Catchall route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+
 // Run server
 app.listen(PORT, () => {
   console.log(`Server has started on port ${PORT}`);
