@@ -4,7 +4,7 @@ import EditTodo from "./editTodo";
 const TodosList = ({ todos, getTodos, setTodos }) => {
   const deleteTodo = async (id) => {
     try {
-      const deletedTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+      const deletedTodo = await fetch(`/todos/${id}`, {
         method: "DELETE",
       });
       // Render only remaining todos
@@ -20,7 +20,7 @@ const TodosList = ({ todos, getTodos, setTodos }) => {
 
   return (
     <Fragment>
-      <div class="align-middle inline-block min-w-full shadow sm:rounded-lg border-b border-gray-200">
+      <div className="align-middle inline-block min-w-full shadow sm:rounded-lg border-b border-gray-200">
         <table className="min-w-full">
           <thead>
             <tr>
