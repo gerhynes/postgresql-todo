@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import TodoInput from "./components/todoInput";
 import TodosList from "./components/todosList";
-import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
